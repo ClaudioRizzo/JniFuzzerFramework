@@ -1,0 +1,62 @@
+.home {
+    width: 100%;
+}
+
+.home .lander {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.home .lander h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+}
+
+.home .lander p {
+    color: #999;
+}
+
+.texttt {
+    font-family: 'Operator Mono', monospace;
+}
+
+
+.lst-inline {
+    font-family: 'Operator Mono', monospace;
+    color: #ff4e7c;
+    background-color: #eeeeee;
+    padding: 3px;
+}
+
+
+.circle {
+    height: 200px;
+    width: 200px;
+    line-height: 200px;
+    background-color: transparent;
+    border-style: solid;
+    border-color: #428bca;
+    border-radius: 50%;
+    font-size: 400%;
+    display: inline-block;
+}
+
+.circle-small {
+    height: 25px;
+    width: 25px;
+    background-color: transparent;
+    border-style: solid;
+    border-color: #428bca;
+    border-radius: 100%;
+    font-size: 100%;
+    display: inline-block;
+}
+
+.tag-spacer {
+    padding: 5px;
+    padding-top: 10px;
+}
+
+.subcard-body {
+    margin-bottom: 12px;
+}

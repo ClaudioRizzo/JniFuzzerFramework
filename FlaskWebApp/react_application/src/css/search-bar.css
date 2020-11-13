@@ -1,0 +1,32 @@
+*
+{
+    -webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;         
+}
+
+.navbar-form
+{
+    position: relative;
+}
+
+.form-control
+{
+    width: 100%;
+}
+
+#searchResults {
+    position: absolute;
+    width: auto; 
+    background: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000; /* makes it appear at the fron of everything... hacky */
+    
+    /*This is relative to the navbar now*/
+    left: 0;
+    right: 0;
+    top: 40px;
+}

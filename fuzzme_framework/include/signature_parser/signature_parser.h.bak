@@ -1,0 +1,119 @@
+#include <map>
+#include <string>
+#include <vector>
+
+namespace sigp {
+class AndroidSignatureParser {
+   public:
+    AndroidSignatureParser() {}
+
+    /** This method parses the provided signature.
+     *  If successful, it return true, flase otherwise.
+     *  If parsing is successful, this parser is populated
+     *  with the extracted value, namely: package name,
+     *  return type, method name, function parameters.
+     *
+     *  Param:
+     *      std::string signature to parse
+     *  Returns:
+     *      bool: true if success, false otherwise
+     */
+    virtual bool Parse(std::string signature) { throw "not implemented"; };
+
+    void SetPackage(std::string package) { this->package_ = package; }
+
+    void SetReturnType(std::string ret_type) { this->ret_type_ = ret_type; }
+
+    void SetMethodName(std::string method_name) {
+        this->method_name_ = method_name;
+    }
+
+    std::string GetPackage() { return this->package_; }
+
+    std::string GetReturnType() { return this->ret_type_; }
+
+    std::string GetMethodName() { return this->method_name_; }
+
+    void AddParamType(std::string param_type) {
+        this->param_types_.push_back(param_type);
+    }
+
+    std::vector<std::string> GetParamTypes() { return this->param_types_; }
+
+   private:
+    std::string ret_type_;
+    std::string package_;
+    std::string method_name_;
+    std::vector<std::string> param_types_;
+};
+
+class SootSignatureParser : public AndroidSignatureParser {
+   public:
+    SootSignatureParser();
+    
+
+    /**
+     * This method is an implementation of Parse
+     * in AndroidSignatureParser.
+     * The parser assumes that the signature is soot like.
+     * 
+     * This is the grammar we try to parse:
+     *  
+     *  S -> ID: ID ID(P|£)
+     *  ID -> numbers and letters
+     *  P -> ID(,ID)*
+     * 
+     */
+    bool Parse(std::string signature);
+
+   private:
+
+    class Token {
+       public:
+        enum TokenID {
+            SPACE,   // " "
+            LP,      // (
+            RP,      // )
+            COL,     // :
+            COM,     // ,
+            GEN_ID,  // general ID
+        };
+                
+        Token(TokenID id, std::string value) {
+            this->value_ = value;
+            this->id_ = id;
+        };
+        TokenID getID() { return this->id_; }
+        std::string getValue() { return this->value_; };
+
+       private:
+        TokenID id_;
+        std::string value_;
+    };
+
+    
+    std::vector<Token> tokens_;
+    int current_token_index_;
+    Token expect(Token::TokenID expected);
+    Token next();
+    Token peek();
+    void Lex(std::string signature);
+    void TestToken(std::string token_str);
+    bool IsGeneralID(std::string general_id);
+    void ParseParameters();
+    bool IsTokenListEmpty();
+};
+
+class ParseException : std::exception {
+ public:
+  ParseException(const char *message) {
+      this->message_ = message;
+  };
+  const char *what() const throw() {
+      return this->message_;
+  }
+
+ private:
+  const char *message_;
+};
+}  // namespace sigp

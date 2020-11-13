@@ -1,0 +1,60 @@
+{
+  "title": "TaintSaviour",
+  "name": "taint-saviour",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A front end for fuzzing Android native libraries.",
+  "author": "C. Rizzo and F. Pendlebury",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BlackrockDigital/startbootstrap-sb-admin-2.git"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.7.2",
+    "axios": "^0.19.0",
+    "bootstrap": "4.3.1",
+    "chart.js": "^2.7.3",
+    "datatables.net-bs4": "1.10.19",
+    "express": "^4.16.4",
+    "jquery": "^3.4.1",
+    "jquery.easing": "^1.4.1",
+    "popper.js": "^1.14.7",
+    "react": "^16.8.2",
+    "react-bootstrap": "^1.0.0-beta.6",
+    "react-bootstrap-table": "^4.3.1",
+    "react-dom": "^16.8.2",
+    "react-loading": "^2.0.3",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.5",
+    "react-virtualized": "^9.21.0",
+    "vis-react": "^0.4.3",
+    "webfontloader": "^1.6.28"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "6.0.0",
+    "gulp-clean-css": "4.0.0",
+    "gulp-header": "2.0.7",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "1.4.0",
+    "gulp-sass": "4.0.2",
+    "gulp-uglify": "3.0.1",
+    "startbootstrap-sb-admin-2": "^4.0.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
